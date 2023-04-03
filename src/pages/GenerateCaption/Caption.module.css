@@ -1,0 +1,94 @@
+main {
+    height: 100%;
+}
+
+.choose-file {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.image-caption {
+    width: 80%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+}
+
+.go-back {
+    position: absolute;
+    left: 3rem;
+    top: 2rem;
+    margin: 0;
+    padding: 0;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.go-back a {
+    text-decoration: none;
+    color: black;
+}
+
+.go-back a:hover,
+.go-back a:active,
+.go-back a.active {
+    text-decoration: none;
+    color: black;
+}
+
+.go-back svg {
+    font-size: 2rem;
+}
+
+.go-back:hover {
+    background-color: #f3f3f3;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-container {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    padding: 1rem;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.216);
+    z-index: 10;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #383636;
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+}
+
+.spinner-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+}

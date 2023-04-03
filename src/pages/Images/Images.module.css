@@ -1,0 +1,54 @@
+main {
+    height: 100%;
+}
+
+.all-images-container {
+    height: 100%;
+    width: 100%;
+}
+
+.go-back {
+    position: absolute;
+    left: 3rem;
+    top: 2rem;
+    margin: 0;
+    padding: 0;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.go-back a {
+    text-decoration: none;
+    color: black;
+}
+
+.go-back a:hover,
+.go-back a:active,
+.go-back a.active {
+    text-decoration: none;
+    color: black;
+}
+
+.go-back svg {
+    font-size: 2rem;
+}
+
+.go-back:hover {
+    background-color: #f3f3f3;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

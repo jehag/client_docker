@@ -1,0 +1,73 @@
+.body {
+    width: 100%;
+    height: 100%;
+}
+
+.description-text {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+}
+
+.image-list {
+    width: 100%;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0 3rem;
+    padding-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.list>li {
+    flex-basis: 320px;
+    flex: 16%;
+}
+
+.list li img {
+    object-fit: cover;
+    max-width: 50%;
+    height: auto;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+
+.action-buttons {
+    width: 100%;
+    height: 10%;
+    padding: 3rem 0rem 3rem 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.add-celebrity {
+    border: none;
+    border-radius: 20px;
+    background-color: #4694FE;
+    color: #fff;
+    font-family: "Graphik-Medium", sans-serif;
+    font-size: 1.6rem;
+    height: 3.2rem;
+    line-height: 42px;
+    padding: 0 2.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-celebrity:hover {
+    background-color: #4370FF;
+}
+
+.add-celebrity:disabled {
+    background-color: #4693fe58;
+}

@@ -1,0 +1,41 @@
+.legend {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2% 0;
+}
+
+.legend-normal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    margin-right: 1%;
+}
+
+.legend-ai {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    margin-left: 1%;
+}
+
+.legend-text {
+    margin-left: 2%;
+    font-size: 1.4rem;
+}
+
+.legend-normal-color-square {
+    width: 2rem;
+    height: 2rem;
+    background-color: rgb(87, 154, 253);
+}
+
+.legend-ai-color-square {
+    width: 2rem;
+    height: 2rem;
+    background-color: rgb(58, 188, 21);
+}

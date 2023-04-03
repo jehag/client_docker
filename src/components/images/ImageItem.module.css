@@ -1,0 +1,37 @@
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+.caption-container {
+    margin-top: 1%;
+}
+
+.normal-caption {
+    background-color: rgba(87, 154, 253, 0.1);
+    border-left: 4px solid rgb(87, 154, 253);
+    padding: 2%;
+    margin-bottom: 1%;
+    overflow: hidden;
+    height: 2.56rem;
+}
+
+.normal-caption:hover {
+    overflow: visible;
+    height: fit-content;
+    min-height: 2.56rem;
+}
+
+.ai-caption {
+    background-color: rgba(58, 188, 21, 0.1);
+    border-left: 4px solid rgb(58, 188, 21);
+    padding: 2%;
+    overflow: hidden;
+    height: 2.56rem;
+}
+
+.ai-caption:hover {
+    overflow: visible;
+    height: fit-content;
+    min-height: 2.56rem;
+}

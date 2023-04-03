@@ -1,0 +1,33 @@
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.choose-button {
+    border: none;
+    margin: auto;
+    border-radius: 20px;
+    background-color: #F0F0F0;
+    color: black;
+    font-family: "Graphik-Medium", sans-serif;
+    font-size: 16px;
+    height: 2.5rem;
+    line-height: 32px;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.choose-button:hover {
+    background-color: #b3b1b1;
+}
