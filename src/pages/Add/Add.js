@@ -13,7 +13,7 @@ export default function AddPage() {
             <div className={styles["actions-container"]}>
             
                 <div className={styles["action-button"]}>
-                    <Link to='/add-image' className={styles["link"]}>
+                     <Link to='/add-image' className={styles["link"]}>
                         <FaImage />
                         Ajouter une image <br/> 
                         quelconque et sa description
@@ -28,13 +28,13 @@ export default function AddPage() {
                     </Link>
                 </div>
             
-                <div className={styles["action-button"]}>
-                    <Link to='/add-logo' className={styles["link"]}>
+                {/* <div className={styles["action-button"]}>
+                    <div className={`${styles["link"]} ${styles["disabled"]}`}>
                         <FaFootballBall />
                         Ajouter une image<br/>
                          d'un logo
-                    </Link>
-                </div>
+                    </div>
+                </div> */}
 
             </div>
         </main>

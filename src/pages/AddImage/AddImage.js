@@ -1,16 +1,20 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../components/placeholders/LoadingSpinner";
 import styles from "./AddImage.module.css";
-
-const apiUrl = process.env.REACT_APP_TAG_GENERATION_API_URL;
 
 export default function AddImagePage() {
     const inputRef = useRef();
     const [selectedImage, setSelectedImage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isImageAdded, setImageAdded] = useState(false);
+
+    const [apiUrl, setApiUrl] = useState('');
+    useEffect(() => {
+        const apiUrl = process.env.REACT_APP_SELF_TRAINING_API_URL;
+        if (apiUrl) setApiUrl(apiUrl);
+    }, []);
 
     const addImage = () => {
         setImageAdded(false);

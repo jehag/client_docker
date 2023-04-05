@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import CelebrityImagesList from "../../components/images/CelebrityImageList";
@@ -9,8 +9,6 @@ import NotFound from "../../components/placeholders/NotFound";
 import SearchCelebrity from "../../components/search/SearchCelebrity";
 import styles from "./Celebrities.module.css";
 
-const apiUrl = process.env.REACT_APP_FACE_RECOGNITION_API_URL;
-
 export default function CelebritiesPage() {
     const [celebrityName, setCelebrityName] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -19,6 +17,12 @@ export default function CelebritiesPage() {
     const [isCelebrityAdded, setCelebrityAdded] = useState(false);
     const [isNotFound, setNotFound] = useState(false);
     const [loadedImages, setLoadedImages] = useState([]);
+
+    const [apiUrl, setApiUrl] = useState('');
+    useEffect(() => {
+        const url = process.env.REACT_APP_FACE_RECOGNITION_API_URL;
+        if (url) setApiUrl(url);
+    }, [setApiUrl]);
 
     function onSearch(input) {
         console.log("Searching images for " + input);

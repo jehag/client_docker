@@ -6,14 +6,18 @@ import { Link } from "react-router-dom";
 import LoadingSpinner from "../../components/placeholders/LoadingSpinner";
 import styles from "./AddLogo.module.css";
 
-const apiUrl = process.env.REACT_APP_FACE_RECOGNITION_API_URL;
-
-export default function AddCelebrityPage() {
+export default function AddLogoPage() {
     const inputRef = useRef();
     const [selectedImage, setSelectedImage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [logos, setLogos] = useState([]);
     const [isLogoAdded, setLogoAdded] = useState(false);
+    
+    const [apiUrl, setApiUrl] = useState('');
+    // useEffect(() => {
+    //     const url = process.env.REACT_APP_FACE_RECOGNITION_API_URL;
+    //     if (url) setApiUrl(url);
+    // }, [setApiUrl]);
 
     const addImage = () => {
         setLogoAdded(false);
@@ -59,11 +63,21 @@ export default function AddCelebrityPage() {
         }
     };
 
-    useEffect(() => {
-        fetch(`${apiUrl}/celebrities`)
-        .then((response) => response.json())
-        .then((data) => setLogos(data.celebrities));
-    }, []);
+    // useEffect(() => {
+    //     fetch(`${apiUrl}/celebrities`)
+    //     .then((response) => response.json())
+    //     .then((data) => setLogos(data.celebrities));
+    // }, [apiUrl, setLogos]);
+
+
+    fetch(`${process.env.REACT_APP_SERVER_API_URL}/caption-images`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            container_name: 'serverimages'
+        })})
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 
     return (
         <main>

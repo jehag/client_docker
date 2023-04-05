@@ -1,6 +1,5 @@
 import styles from "./FirstCelebrityAdd.module.css";
 import { FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 export default function FirstCelebrityAdd(props) {
     return (
@@ -17,18 +16,7 @@ export default function FirstCelebrityAdd(props) {
                     </div>
                 </div>
 
-                <div className={styles['add-image']}>
-                    <div>Avez-vous plutôt une image d'une célébrité à ajouter?</div>
-                    
-                    <Link to='/add-celebrity' className={styles['go-back']}>
-                        <button
-                            className={styles['add-celebrity']}
-                            onClick={props.addCelebrityImage}
-                        >
-                            Ajouter une image
-                        </button>
-                    </Link>
-                </div>
+                <div></div>
             </div>
         );
 }

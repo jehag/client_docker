@@ -1,19 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Caption from "../../components/caption/Caption";
 import ChooseImage from "../../components/choose-image/Choose-image";
 import styles from "./Caption.module.css";
 
-const serverApiUrl = process.env.REACT_APP_SERVER_API_URL
-
 export default function CaptionPage() {
+    const [serverApiUrl, setServerApiUrl] = useState('');
     const [frenchCaption, setFrenchCaption] = useState("");
     const [englishCaption, setEnglishCaption] = useState("");
     const [imageTags, setImageTags] = useState("");
     const [celebrityName, setCelebrityName] = useState("");
     const [logo, setLogo] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        const url = process.env.REACT_APP_SERVER_API_URL;
+        if (url) setServerApiUrl(url);
+        console.log(url)
+    }, [setServerApiUrl]);
 
     async function onChooseImage(image) {
 
@@ -59,7 +64,8 @@ export default function CaptionPage() {
     }
 
     async function fetchGeneratedCaption(imageBase64) {
-        const response = await fetch(`${serverApiUrl}/generate-label`, {
+        console.log(`${serverApiUrl}/caption-single-image`);
+        const response = await fetch(`${serverApiUrl}/caption-single-image`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

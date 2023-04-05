@@ -11,7 +11,7 @@ main {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    width: 100%;
+    width: 75%;
     padding: 0rem 5rem;
 }
 
@@ -99,4 +99,14 @@ main {
 
 .go-back:hover {
     background-color: #f3f3f3;
+}
+
+.disabled {
+    background-color: gray;
+    border-radius: 20px;
+    cursor: not-allowed;
+}
+
+.disabled:hover {
+    background-color: gray;
 }

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaCheck } from "react-icons/fa";
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import LoadingSpinner from "../../components/placeholders/LoadingSpinner";
 import styles from "./AddCelebrity.module.css";
 
-const apiUrl = process.env.REACT_APP_FACE_RECOGNITION_API_URL;
 
 export default function AddCelebrityPage() {
     const inputRef = useRef();
@@ -14,6 +13,24 @@ export default function AddCelebrityPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [celebrities, setCelebrities] = useState([]);
     const [isCelebrityAdded, setCelebrityAdded] = useState(false);
+
+    const [apiUrl, setApiUrl] = useState('');
+
+    const onFetchCelebrities = useCallback(() => {
+        if (!apiUrl) return;
+        fetch(`${apiUrl}/celebrities`)
+            .then((response) => response.json())
+            .then((data) => setCelebrities(data.celebrities));
+    }, [apiUrl, setCelebrities]);
+
+    useEffect(() => {
+        const url = process.env.REACT_APP_FACE_RECOGNITION_API_URL;
+        if (url) setApiUrl(url);
+    }, [setApiUrl]);
+
+    useEffect(() => {
+        onFetchCelebrities();
+    }, [onFetchCelebrities]);
 
     const addImage = () => {
         setCelebrityAdded(false);
@@ -58,12 +75,6 @@ export default function AddCelebrityPage() {
             reader.readAsDataURL(image);
         }
     };
-
-    useEffect(() => {
-        fetch(`${apiUrl}/celebrities`)
-        .then((response) => response.json())
-        .then((data) => setCelebrities(data.celebrities));
-    }, []);
 
     return (
         <main>

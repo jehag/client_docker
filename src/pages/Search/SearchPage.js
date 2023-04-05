@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ImageList from "../../components/images/ImageList";
@@ -9,13 +9,17 @@ import Search from "../../components/search/Search";
 
 import styles from "./SearchPage.module.css";
 
-const apiUrl = process.env.REACT_APP_SERVER_API_URL;
-
 function SearchPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [isFirstSearch, setFirstSearch] = useState(true);
     const [isNotFound, setNotFound] = useState(false);
     const [loadedImages, setLoadedImages] = useState([]);
+    
+    const [apiUrl, setApiUrl] = useState('');
+    useEffect(() => {
+        const apiUrl = process.env.REACT_APP_SERVER_API_URL;
+        if (apiUrl) setApiUrl(apiUrl);
+    }, []);
 
     function onSearch(input, searchType) {
         console.log("Searching for images with words: " + input);
