@@ -15,7 +15,7 @@ export default function CaptionPage() {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        const url = process.env.REACT_APP_SERVER_API_URL;
+        const url = window._env_.REACT_APP_SERVER_API_URL;
         if (url) setServerApiUrl(url);
         console.log(url)
     }, [setServerApiUrl]);

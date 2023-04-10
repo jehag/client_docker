@@ -20,7 +20,7 @@ export default function CelebritiesPage() {
 
     const [apiUrl, setApiUrl] = useState('');
     useEffect(() => {
-        const url = process.env.REACT_APP_FACE_RECOGNITION_API_URL;
+        const url = window._env_.REACT_APP_FACE_RECOGNITION_API_URL;
         if (url) setApiUrl(url);
     }, [setApiUrl]);
 

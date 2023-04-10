@@ -24,7 +24,7 @@ export default function AddCelebrityPage() {
     }, [apiUrl, setCelebrities]);
 
     useEffect(() => {
-        const url = process.env.REACT_APP_FACE_RECOGNITION_API_URL;
+        const url = window._env_.REACT_APP_FACE_RECOGNITION_API_URL;
         if (url) setApiUrl(url);
     }, [setApiUrl]);
 

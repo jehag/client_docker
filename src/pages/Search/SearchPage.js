@@ -17,7 +17,7 @@ function SearchPage() {
     
     const [apiUrl, setApiUrl] = useState('');
     useEffect(() => {
-        const apiUrl = process.env.REACT_APP_SERVER_API_URL;
+        const apiUrl = window._env_.REACT_APP_SERVER_API_URL;
         if (apiUrl) setApiUrl(apiUrl);
     }, []);
 

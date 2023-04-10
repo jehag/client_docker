@@ -15,7 +15,7 @@ export default function AddLogoPage() {
     
     const [apiUrl, setApiUrl] = useState('');
     // useEffect(() => {
-    //     const url = process.env.REACT_APP_FACE_RECOGNITION_API_URL;
+    //     const url = window._env_.REACT_APP_FACE_RECOGNITION_API_URL;
     //     if (url) setApiUrl(url);
     // }, [setApiUrl]);
 
@@ -70,7 +70,7 @@ export default function AddLogoPage() {
     // }, [apiUrl, setLogos]);
 
 
-    fetch(`${process.env.REACT_APP_SERVER_API_URL}/caption-images`, {
+    fetch(`${window._env_.REACT_APP_SERVER_API_URL}/caption-images`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
