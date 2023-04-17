@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Modal from 'react-modal';
 import CelebrityImagesList from "../../components/images/CelebrityImageList";
 import CelebrityAddSuccess from "../../components/placeholders/CelebrityAddSuccess";
 import FirstCelebrityAdd from "../../components/placeholders/FirstCelebrityAdd";
@@ -17,12 +18,19 @@ export default function CelebritiesPage() {
     const [isCelebrityAdded, setCelebrityAdded] = useState(false);
     const [isNotFound, setNotFound] = useState(false);
     const [loadedImages, setLoadedImages] = useState([]);
+    const [celebrities, setCelebrities] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const [apiUrl, setApiUrl] = useState('');
     useEffect(() => {
         const url = window._env_.REACT_APP_FACE_RECOGNITION_API_URL;
-        if (url) setApiUrl(url);
-    }, [setApiUrl]);
+        if (url) {
+            setApiUrl(url);
+            fetch(`${url}/celebrities`)
+                .then((response) => response.json())
+                .then((data) => setCelebrities([...data.celebrities.sort()]));
+        }
+    }, [setApiUrl, setCelebrities]);
 
     function onSearch(input) {
         console.log("Searching images for " + input);
@@ -103,6 +111,14 @@ export default function CelebritiesPage() {
             });
     }
 
+    function openCelebrityModal() {
+        setIsModalOpen(true);
+    }
+
+    function closeCelebrityModal() {
+        setIsModalOpen(false);
+    }
+
     return (
         <main>
             <Link to='/' className={styles['go-back']}>
@@ -112,6 +128,41 @@ export default function CelebritiesPage() {
             <div className={styles['search-box']}>
                 <SearchCelebrity onSearch={onSearch} />
             </div>
+            
+            <div className={styles['check-celeb']}>
+                <button 
+                    className={styles['check-celeb-button']}
+                    onClick={openCelebrityModal}    
+                >
+                        Liste de célébrités déjà supportées
+                </button>
+            </div>
+
+            <Modal
+                isOpen={isModalOpen}
+                onRequestClose={closeCelebrityModal}
+                contentLabel="Liste de célébrités déjà supportées"
+                style={{
+                    content: {
+                        width: '70%', // Set the width of the modal
+                        height: '70%', // Set the height of the modal
+                        borderRadius: '15px',
+                        margin: 'auto'
+                    },
+                    overlay: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Set the desired color and opacity for the overlay
+                    },
+                }}
+            >
+                <h2>Liste de célébrités déjà supportées</h2>
+                <div>
+                    <ul className={styles['modal-ul']}>
+                        {celebrities.map((celebrity, index) => (
+                            <li key={index}>{celebrity}</li>
+                        ))}
+                    </ul>
+                </div>
+            </Modal>
 
             <div className={styles['celebrities-list']}>
                 {

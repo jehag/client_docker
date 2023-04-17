@@ -55,3 +55,34 @@ main {
     box-sizing: border-box;
     padding: 2rem 1.5rem;
 }
+
+.check-celeb {
+    position: absolute;
+    right: 3rem;
+    top: 1rem;
+    width: 12%;
+    margin-top: 0 !important;
+    height: fit-content;
+}
+
+.check-celeb-button {
+    padding: 0.5rem 1rem;
+    margin-top: 0 !important;
+    height: fit-content;
+    line-height: 1rem;
+}
+
+.modal {
+    margin: auto;
+    padding: 1rem;
+}
+
+.modal div {
+    overflow: auto;
+}
+
+.modal-ul {
+    overflow-y: auto;
+    column-count: 3; 
+    column-gap: '1rem';
+}

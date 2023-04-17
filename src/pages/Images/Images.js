@@ -77,7 +77,6 @@ export default function AllImagesPage() {
                             <ImageList
                                 images={loadedImages}
                                 displaySize={20}
-                                showCaptions={true}
                             />
                         </>
                 }

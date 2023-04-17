@@ -26,7 +26,6 @@ function ImageList(props) {
                                     title={props.images[i].title}
                                     normalCaption={props.images[i].normalCaption}
                                     aiCaption={props.images[i].aiCaption}
-                                    showCaptions={props.showCaptions}
                                     />
                             );
                         }

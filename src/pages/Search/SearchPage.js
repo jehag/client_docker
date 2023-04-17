@@ -90,7 +90,6 @@ function SearchPage() {
                     : <ImageList
                         images={loadedImages}
                         displaySize={8}
-                        showCaptions={false}
                     /> 
                 }
             </div>

@@ -1,4 +1,4 @@
-import { FaImage, FaStar, FaArrowLeft, FaFootballBall } from "react-icons/fa";
+import { FaImage, FaStar, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styles from "./Add.module.css";
 
