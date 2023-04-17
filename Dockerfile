@@ -18,7 +18,7 @@ COPY .env .
 # Add bash
 RUN apk add --no-cache bash
 RUN apk add dos2unix --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community/ --allow-untrusted
-RUN dos2unix -k .env
+# RUN dos2unix -k .env
 
 # Make our shell script executable
 RUN chmod +x env.sh
